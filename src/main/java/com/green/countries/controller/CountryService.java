@@ -77,7 +77,7 @@ public class CountryService {
         return country;
     }
 
-    public Country getCountry(long countryId) {
+    public Country getCountry(String countryId) {
         LOG.info("getCountry::fetching country for :",countryId);
         return countryMap.get(countryId);
     }

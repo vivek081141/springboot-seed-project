@@ -13,7 +13,7 @@ import java.util.List;
  */
 @RestController
 @Api(value = "Country", description = "Country Api")
-@RequestMapping("/country/")
+@RequestMapping("/country")
 class CountryController {
 
     @Autowired
@@ -37,16 +37,18 @@ class CountryController {
     }
 
     @ApiOperation(value = "edit Country")
-    @RequestMapping(value = "/", method = RequestMethod.PUT)
+    @RequestMapping(value = "/edit/", method = RequestMethod.PUT)
     public Country editCountry(@Valid @RequestBody Country country) {
         return countryService.editCountry(country);
     }
 
-    @RequestMapping(value = "/{countryId}", method = RequestMethod.GET)
-    public Country getCountry(@PathVariable long countryId) {
+    @RequestMapping(value = "/get/{countryId}", method = RequestMethod.GET)
+    public Country getCountry(@PathVariable String countryId) {
         return countryService.getCountry(countryId);
     }
 
+    @ApiOperation(value = "delete Country")
+    @RequestMapping(value = "/delete/{countryId}", method = RequestMethod.PUT)
     public boolean deleteCountry(@PathVariable String countryId){
         return countryService.deleteCountry(countryId);
     }
