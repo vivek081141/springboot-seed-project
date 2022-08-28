@@ -3,6 +3,8 @@ phases:
   install:
     commands:
       - echo "install"
+      - echo "java -version"
+      - java --version
   pre_build:
     commands:
       - echo "pre_build"
